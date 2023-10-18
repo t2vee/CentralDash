@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Jellyfin",
+        "icon_url": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/jellyfin.png",
+        "uri": "http://watch.home.lab"
+    },
+    {
+        "name": "Jellyseerr",
+        "icon_url": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/jellyseerr.png",
+        "uri": "http://request.home.lab"
+    }
+]
