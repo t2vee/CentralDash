@@ -27,7 +27,7 @@ async def home(request: Request):
 
 
 @app.get("/Editor/Icons.html")
-async def icons_editor(request: Request):
+async def icons_add(request: Request):
     return templates.TemplateResponse("Editor.Icons.html", {"request": request})
 
 
@@ -36,20 +36,20 @@ async def nginx_editor(request: Request):
     return templates.TemplateResponse("Editor.Nginx.html", {"request": request})
 
 
+@app.get("/Editor/Icons.Edit.html")
+async def icons_edit(request: Request):
+    return templates.TemplateResponse("Editor.Icons.Edit.html", {"request": request})
+
+
 @app.post("/API/AddIcon")
 async def add_icon(request: Request, serviceName: str = Form(...), iconURL: str = Form(...),
                    accessURI: str = Form(...)):
-    # Load the current icons
     icons = load_icons()
-
-    # Add the new icon
     icons.append({
         "name": serviceName,
         "icon_url": iconURL,
         "uri": accessURI
     })
-
-    # Save the updated icons
     save_icons(icons)
 
     return {"message": "Icon added successfully"}
